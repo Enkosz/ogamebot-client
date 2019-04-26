@@ -5,7 +5,7 @@ block styleExtension
 
 block scriptExtension
     script(src='/app-assets/vendors/js/tables/datatable/datatables.min.js', type='text/javascript')
-    script(src='/assets/js/scripts/datatables/datatables_product.js', type='text/javascript')
+    script(src='/assets/js/scripts/datatables/datatables_planets.js', type='text/javascript')
     
 block pageHeader
     .content-header-left.col-md-6.col-12.mb-2
@@ -23,14 +23,13 @@ block pageContent
         .col-md-12
             .card
                 .card-header
-                    h4.card-title Prodotti Registrati
+                    h4.card-title Your Planets
                 .card-content
                     .card-body.card-dashboard
-                        table#product-list.table.table-striped.table-bordered
+                        table#planets-list.table.table-striped.table-bordered
                             thead
                                 tr
-                                    th Nome
-                                    th Prezzo
-                                    th Scuola
-                                    th Azioni
+                                    th ID
+                                    th Name
+                                    th Coordinates
                             tbody
