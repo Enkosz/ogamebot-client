@@ -1,0 +1,72 @@
+extends ../../layout/index
+
+block scriptExtension
+    script(src='https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js' type="text/javascript")
+    script(src='/assets/js/scripts/calls/school.js')
+    script(src='/app-assets/vendors/js/forms/extended/inputmask/jquery.inputmask.bundle.min.js', type='text/javascript')
+
+block styleExtension
+    link(rel='stylesheet', type='text/css', href='/app-assets/css/plugins/forms/validation/form-validation.css')
+
+block pageHeader
+    .content-header-left.col-md-6.col-12.mb-2
+        h3.content-header-title.mb-0 #{title}
+        .row.breadcrumbs-top
+            .breadcrumb-wrapper.col-12
+                ol.breadcrumb
+                    li.breadcrumb-item
+                        a(href='/') Home
+                    li.breadcrumb-item.active
+                        | #{title}
+
+block pageContent
+    .row
+        .col-md-12
+            include ../../layout/components/flash
+            .card
+                .card-header
+                    h4.card-title #{title}
+                form#form_school_create.form(action="/schools/edit?id=" + foundSchool.id method="POST")
+                    .card-content
+                        .card-body
+                            h4.form-section
+                                i.ft-clipboard
+                                |  Informazioni Scuola
+                            .row
+                                .col-md-12
+                                    .form-group
+                                        label(for='school-name') Nome
+                                        input#school-name.form-control(type='text' name="name" value=foundSchool.name)
+                            .row
+                                .col-md-12
+                                    .form-group
+                                        label(for='school-address') Indirizzo Civico
+                                        input#school-address.form-control(type='text' name="address" value=foundSchool.address)
+                            .row
+                                .col-md-6
+                                    .form-group
+                                        label(for='school-city') Città
+                                        input#school-city.form-control(type='text' name="city" value=foundSchool.city)
+                                .col-md-6
+                                    .form-group
+                                        label(for='school-province') Provincia
+                                        input#school-province.form-control(type='text' name="province" value=foundSchool.province)
+                            .row
+                                .col-md-12
+                                    .form-group
+                                        label(for='school-region') Regione
+                                        input#school-region.form-control(type='text' name="region" value=foundSchool.region)
+                            .row
+                                .col-md-6
+                                    .form-group
+                                        label(for='school-email') Email
+                                        input#school-email.form-control(type='email' name="email" value=foundSchool.email data-toggle='tooltip', data-trigger='hover', data-placement='top', data-title='Campo opzionale', data-original-title='')
+                                .col-md-6
+                                    .form-group
+                                        label(for='school-phone') Telefono
+                                        input#school-phone.form-control(type='text' name="phone" value=foundSchool.phone data-toggle='tooltip', data-trigger='hover', data-placement='top', data-title='Campo opzionale', data-original-title='')
+                        .form-actions.center
+                            button.btn.btn-blue.mr-1(type='submit')
+                                |  Conferma
+
+

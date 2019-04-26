@@ -1,0 +1,10 @@
+- var messages = getMessages()
+
+if messages.errors
+    .alert.alert-danger(role='alert')
+        for errors in messages.errors
+            span #{errors.msg}
+if messages.success
+    .alert.alert-success(role='alert')
+        for success in messages.success
+            span #{success.msg}

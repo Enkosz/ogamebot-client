@@ -1,0 +1,56 @@
+extends ../../layout/index
+
+block scriptExtension
+    script(src='https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js' type="text/javascript")
+    script(src='/assets/js/scripts/calls/class.js' type="text/javascript")
+
+block styleExtension
+    link(rel='stylesheet', type='text/css', href='/app-assets/css/plugins/forms/validation/form-validation.css')
+
+block pageHeader
+    .content-header-left.col-md-6.col-12.mb-2
+        h3.content-header-title.mb-0 #{title}
+        .row.breadcrumbs-top
+            .breadcrumb-wrapper.col-12
+                ol.breadcrumb
+                    li.breadcrumb-item
+                        a(href='/') Home
+                    li.breadcrumb-item.active
+                        | #{title}
+
+block pageContent
+    .row
+        .col-md-12
+            include ../../layout/components/flash
+            .card
+                .card-header
+                    h4.card-title #{title}
+                form#form_class_create.form(action="/classes/edit?id=" + foundClass.id method="POST")
+                    .card-content
+                        .card-body
+                            h4.form-section
+                                i.ft-clipboard
+                                |  Informazioni Classe
+                            .row
+                                .col-md-12
+                                    .form-group
+                                        label(for='class-name') Nome
+                                        input#class-name.form-control(type='text' name="name" value=foundClass.section)
+                            .row
+                                .col-md-12
+                                    .form-group
+                                        label(for='class-faculty') Indirizzo
+                                        input#class-faculty.form-control(type='text' name="faculty" value=foundClass.faculty)
+                            .row
+                                .col-md-12
+                                    .form-group
+                                        label(for='class-school') Scuola
+                                        select#class-school.form-control(name="schoolId")
+                                                option(selected disabled) Seleziona una scuola
+                                                each school in foundSchools
+                                                    option(value=school.id selected = (school.id == foundClass.schoolId ? true : false)) #{school.name + ', ' + school.city}
+                        .form-actions.center
+                            button.btn.btn-blue.mr-1(type='submit')
+                                |  Conferma
+
+

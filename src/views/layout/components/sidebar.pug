@@ -1,0 +1,86 @@
+.main-menu.menu-fixed.menu-dark.menu-accordion.menu-shadow.menu-border(data-scroll-to-active='true')
+    .main-menu-content
+        ul.navigation.navigation-main#main-menu-navigation(data-menu='menu-navigation')
+            li.navigation-header
+                span Riepilogo Utente
+                i.la.la-ellipsis-h.ft-minus(data-toggle='tooltip', data-placement='right')
+            li.nav-item
+                a(href='/')
+                    i.la.la-home
+                    span.menu-title Home
+            li.nav-item
+                a(href='/store/list')
+                    i.la.la-bank
+                    span.menu-title Negozio
+            li.nav-item
+                a(href='/user/orders/list')
+                    i.la.la-money
+                    span.menu-title I miei ordini
+            li.nav-item.has-sub
+                a(href='#')
+                    i.la.la-shopping-cart
+                    span.menu-title Portafoglio
+                ul.menu-content
+                    li
+                        a.menu-item(href='/user/recharge/list') I miei movimenti
+                    li
+                        a.menu-item(href='/user/recharge/create') Prenota ricarica
+            li.navigation-header
+                span Amministrazione
+                i.la.la-ellipsis-h.ft-minus(data-toggle='tooltip', data-placement='right')
+            li.nav-item.has-sub
+                a(href='#')
+                    i.la.la-shopping-cart
+                    span.menu-title Gestione Ordini
+                ul.menu-content
+                    li
+                        a.menu-item(href='/orders/list') Lista Ordini
+            li.nav-item.has-sub
+                a(href='#')
+                    i.la.la-users
+                    span.menu-title Gestione Utenti
+                ul.menu-content
+                    li
+                        a.menu-item(href='/user/list') Lista Utenti
+                    li
+                        a.menu-item(href='/user/create') Creazione Utente
+            li.nav-item.has-sub
+                a(href='#')
+                    i.la.la-graduation-cap
+                    span.menu-title Gestione Classi 
+                ul.menu-content
+                    li
+                        a.menu-item(href='/classes/list') Lista Classi
+                    li
+                        a.menu-item(href='/classes/create') Creazione Classe
+            li.nav-item.has-sub
+                a(href='#')
+                    i.la.la-building
+                    span.menu-title Gestione Scuole 
+                ul.menu-content
+                    li
+                        a.menu-item(href='/schools/list') Lista Scuole
+                    li
+                        a.menu-item(href='/schools/create') Creazione Scuola
+            li.nav-item.has-sub
+                a(href='#')
+                    i.la.la-cutlery
+                    span.menu-title Gestione Prodotti 
+                ul.menu-content
+                    li
+                        a.menu-item(href='/products/list') Lista Prodotti
+                    li
+                        a.menu-item(href='/products/create') Creazione Prodotto
+            li.nav-item.has-sub
+                a(href='#')
+                    i.la.la-cog
+                    span.menu-title Impostazioni
+                ul.menu-content
+                    li
+                        a.menu-item(href='card-statistics.html') Impostazioni Sistema
+                    li
+                        a.menu-item(href='card-weather.html') Impostazioni Prodotti
+
+
+
+                

@@ -1,0 +1,61 @@
+extends ../../layout/auth
+
+block scriptExtension
+    script(src='/assets/js/scripts/calls/auth.js', type='text/javascript')
+
+block pageContent
+    section.flexbox-container
+        .col-12.d-flex.align-items-center.justify-content-center
+            .col-md-4.col-10.box-shadow-2.p-0
+                .card.border-grey.border-lighten-3.px-2.py-2.m-0
+                    .card-header.border-0
+                        .card-title.text-center
+                            .h2
+                                | Registrazione
+                    .card-content
+                        .card-body
+                            form.form-horizontal.form-simple(action='index.html', novalidate='')
+                                include ../../layout/components/flash
+                                .row
+                                    .col-md-6
+                                        fieldset.form-group.position-relative
+                                            label(for='user-firstname') Nome
+                                            input#user-firstname.form-control.input-md(type='text', placeholder='Inserisci il tuo nome' value=info.firstname_user_signup)
+                                    .col-md-6
+                                        fieldset.form-group.position-relative
+                                            label(for='user-lastname') Cognome
+                                            input#user-lastname.form-control.input-md(type='text', placeholder='Inserisci il tuo cognome' value=info.lastname_user_signup)
+                                .row
+                                    .col-md-12
+                                        fieldset.form-group.position-relative
+                                            label(for='user-email') Email
+                                            input#user-email.form-control.input-md(type='email', placeholder='Inserisci la tua email', required='' value=info.email_user_signup)
+                                .row
+                                    .col-md-6
+                                        fieldset.form-group.position-relative
+                                            label(for='user-password') Password
+                                            input#user-password.form-control.input-md(type='password', placeholder='Inserisci password conferma', required='')
+                                    .col-md-6
+                                        fieldset.form-group.position-relative
+                                            label(for='user-password-confirm') Conferma Password
+                                            input#user-password-confirm.form-control.input-md(type='password', placeholder='Inserisci password conferma', required='')
+                                .row
+                                    .col-md-6
+                                        fieldset.form-group.position-relative
+                                            label(for='user-school') Scuola
+                                            select#user-school.form-control
+                                                option(selected disabled) Seleziona la tua scuola
+                                                each school in foundSchools
+                                                    option(value=school.id) #{school.name + ', ' + school.city}
+                                    .col-md-6
+                                        fieldset.form-group.position-relative
+                                            label(for='user-class') Classe
+                                            select#user-class.form-control
+                                                option(selected disabled) Seleziona la tua classe
+                                button.btn.btn-info.btn-md.btn-block(type='submit')
+                                    |  Registrati
+                        .card-footer
+                            div
+                                p.float-sm-right.text-center.m-0
+                                    | Sei già registrato ? 
+                                    a.card-link(href='/authentication/login') Esegui il login.

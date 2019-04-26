@@ -1,0 +1,26 @@
+extends ../../../layout/index
+    
+block pageHeader
+    .content-header-left.col-md-6.col-12.mb-2
+        h3.content-header-title.mb-0 #{title}
+        .row.breadcrumbs-top
+            .breadcrumb-wrapper.col-12
+                ol.breadcrumb
+                    li.breadcrumb-item
+                        a(href='/') Home
+                    li.breadcrumb-item.active
+                        | #{title}
+
+block pageContent
+    .row
+        .col-md-12
+            include ../../../layout/components/flash
+            .card
+                .card-header
+                    h4.card-title Ordine n.#{foundOrder.id}
+                .card-content
+                    .card-body.card-dashboard
+                        .p 
+                            | Mostra questo QR Code all'operatore per confermare il ritiro del tuo ordine.
+                        .text-center
+                            img(src=generatedQrCode height="200" width="200")

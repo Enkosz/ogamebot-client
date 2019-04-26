@@ -1,0 +1,102 @@
+nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-without-dd-arrow.fixed-top.navbar-dark.navbar-shadow.navbar-brand-center
+    .navbar-wrapper
+        .navbar-header
+            ul.nav.navbar-nav.flex-row
+                li.nav-item.mobile-menu.d-md-none.mr-auto
+                    a.nav-link.nav-menu-main.menu-toggle.hidden-xs(href='#')
+                        i.ft-menu.font-large-1
+                li.nav-item.d-md-none
+                    a.nav-link.open-navbar-container(data-toggle='collapse', data-target='#navbar-mobile')
+                        i.la.la-ellipsis-v
+        .navbar-container.content
+            #navbar-mobile.collapse.navbar-collapse
+                ul.nav.navbar-nav.mr-auto.float-left
+                    li.nav-item.d-none.d-md-block
+                        a.nav-link.nav-menu-main.menu-toggle.hidden-xs(href='#')
+                            i.ft-menu
+                ul.nav.navbar-nav.float-right
+                    li.dropdown.dropdown-user.nav-item
+                        a.dropdown-toggle.nav-link.dropdown-user-link(href='#', data-toggle='dropdown')
+                            span.mr-1
+                                span.text-bold-700.mr-1 #{user.credit} €
+                                span.user-name.text-bold-700 #{(user.firstname + ' ' + user.lastname) || user.email}
+                            span.avatar.avatar-online
+                                img(src='https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50',)
+                                i
+                        .dropdown-menu.dropdown-menu-right
+                            a.dropdown-item(href='/user/profile')
+                                i.ft-user
+                                |  Profilo
+                            a.dropdown-item(href='#')
+                                i.ft-mail
+                                |  My Inbox
+                            a.dropdown-item(href='#')
+                                i.ft-check-square
+                                |  Task
+                            a.dropdown-item(href='#')
+                                i.ft-message-square
+                                |  Chats
+                            .dropdown-divider
+                            a.dropdown-item(href='/authentication/logout')
+                                i.ft-power
+                                |  Logout
+                    li.dropdown.dropdown-notification.nav-item
+                        a#cart_dropdown.nav-link.nav-link-label(href='/store/checkout')
+                            i.ficon.ft-shopping-cart
+                            if (cart.totalItems > 0)
+                                span#cart_length.badge.badge-pill.badge-default.badge-danger.badge-default.badge-up.badge-glow #{cart.totalItems}
+                    li.dropdown.dropdown-notification.nav-item
+                        a.nav-link.nav-link-label(href='#', data-toggle='dropdown')
+                            i.ficon.ft-bell
+                            span.badge.badge-pill.badge-default.badge-danger.badge-default.badge-up.badge-glow 5
+                        ul.dropdown-menu.dropdown-menu-media.dropdown-menu-right
+                            li.dropdown-menu-header
+                                h6.dropdown-header.m-0
+                                    span.grey.darken-2 Notifications
+                                span.notification-tag.badge.badge-default.badge-danger.float-right.m-0 5 New
+                            li.scrollable-container.media-list.w-100
+                                a(href='javascript:void(0)')
+                                    .media
+                                        .media-left.align-self-center
+                                            i.ft-plus-square.icon-bg-circle.bg-cyan
+                                        .media-body
+                                            h6.media-heading You have new order!
+                                            p.notification-text.font-small-3.text-muted Lorem ipsum dolor sit amet, consectetuer elit.
+                                            small
+                                                time.media-meta.text-muted(datetime='2015-06-11T18:29:20+08:00') 30 minutes ago
+                                a(href='javascript:void(0)')
+                                    .media
+                                        .media-left.align-self-center
+                                            i.ft-download-cloud.icon-bg-circle.bg-red.bg-darken-1
+                                        .media-body
+                                            h6.media-heading.red.darken-1 99% Server load
+                                            p.notification-text.font-small-3.text-muted Aliquam tincidunt mauris eu risus.
+                                            small
+                                                time.media-meta.text-muted(datetime='2015-06-11T18:29:20+08:00') Five hour ago
+                                a(href='javascript:void(0)')
+                                    .media
+                                        .media-left.align-self-center
+                                            i.ft-alert-triangle.icon-bg-circle.bg-yellow.bg-darken-3
+                                        .media-body
+                                            h6.media-heading.yellow.darken-3 Warning notifixation
+                                            p.notification-text.font-small-3.text-muted Vestibulum auctor dapibus neque.
+                                            small
+                                                time.media-meta.text-muted(datetime='2015-06-11T18:29:20+08:00') Today
+                                a(href='javascript:void(0)')
+                                    .media
+                                        .media-left.align-self-center
+                                            i.ft-check-circle.icon-bg-circle.bg-cyan
+                                        .media-body
+                                            h6.media-heading Complete the task
+                                            small
+                                                time.media-meta.text-muted(datetime='2015-06-11T18:29:20+08:00') Last week
+                                a(href='javascript:void(0)')
+                                    .media
+                                        .media-left.align-self-center
+                                            i.ft-file.icon-bg-circle.bg-teal
+                                        .media-body
+                                            h6.media-heading Generate monthly report
+                                            small
+                                                time.media-meta.text-muted(datetime='2015-06-11T18:29:20+08:00') Last month
+                            li.dropdown-menu-footer
+                                a.dropdown-item.text-muted.text-center(href='javascript:void(0)') Read all notifications

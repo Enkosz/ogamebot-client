@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    Metal
+    <label id="metal"></label>
+    <br>
+    Crystal
+    <label id="crystal"></label>
+    <br>
+    Metal Mine Production
+    <label id="metalMineProduction">Prod</label>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(function () {
+    var socket = io();
+    socket.emit('refresh', 'ciao')
+    setInterval(function() {
+      socket.emit('refresh', 'ciao')
+    }, 5000);
+    socket.on('done', function ({users, production}) {
+      const {metal, crystal} = users;
+      const {crystalMineProduction, metalMineProduction} = production
+
+      $('#metal').text(metal)
+      $('#crystal').text(crystal)
+      $('#metalMineProduction').text(metalMineProduction + ' u/h')
+    })
+  });
+</script>
+</html>

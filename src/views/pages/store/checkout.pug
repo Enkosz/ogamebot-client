@@ -1,0 +1,73 @@
+extends ../../layout/index
+
+block styleExtension
+    link(rel='stylesheet', type='text/css', href='/app-assets/vendors/css/tables/datatable/datatables.min.css')
+
+block scriptExtension
+    script(src='/app-assets/vendors/js/tables/datatable/datatables.min.js', type='text/javascript')
+    script(src='/assets/js/scripts/datatables/datatables_checkout.js', type='text/javascript')
+
+block pageHeader
+    .content-header-left.col-md-6.col-12.mb-2
+        h3.content-header-title.mb-0 #{title}
+        .row.breadcrumbs-top
+            .breadcrumb-wrapper.col-12
+                ol.breadcrumb
+                    li.breadcrumb-item
+                        a(href='/') Home
+                    li.breadcrumb-item.active
+                        | #{title}
+
+block pageContent
+    include ../../layout/components/flash
+    .card
+        .card-content
+            .card-body
+                .table-responsive
+                    table#checkout-list.table.table-striped.table-bordered
+                        thead
+                            tr  
+                                th Id
+                                th Prodotto
+                                th Prezzo
+                                th Quantità
+                                th Totale
+                                th Azioni
+                        tbody
+                            each product in foundProducts
+                                tr  
+                                    td
+                                        | #{product.id}
+                                    td
+                                        | #{product.name}
+                                    td
+                                        | #{product.price} €
+                                    td
+                                        input.form-control(type='number', min='0', max='1000', value=cart.items[product.id].quantity)
+                                    td
+                                        | #{parseFloat(product.price * cart.items[product.id].quantity).toFixed(2)} €
+                                    td
+                                        .d-flex.flex-row
+                                            .col-md-4.mr-2
+                                                button.btn.btn-blue(type='button') Modifica
+                                            .col-md-4
+                                                button.btn.btn-danger(type='button') Rimuovi
+
+    .row
+        .col-md-12
+            .card
+                .card-header
+                    h4.card-title Resoconto Ordine
+                .card-content
+                    .card-body
+                        .price-detail
+                            | Totale Ordine
+                            span.float-right #{totalPrice} €
+    .row
+        .col-md-12
+            .card
+                .card-content
+                    .card-body
+                        .text-center
+                            form#form_checkout_confirm(action='/store/order', method='POST')
+                                button.btn.btn-info.mr-2(type='submit') Conferma Ordine

@@ -1,0 +1,8 @@
+.has-error {
+    color: #FF4961;
+}
+
+form input.has-error,
+form select.has-error  {
+    border: 1px solid #FF4961 !important;
+}
