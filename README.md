@@ -1,25 +1,11 @@
-# Node.js, Babel(ES6) Boilerplate with Visual Studio Code Debugger configurations.
+# OgameBot Client
 
-## Install
+## What is?
 
-In project root:
-`npm install`
-or
-`yarn`
+OgameBot Client is the client side version of the Python Scraping Server (REST).
+This client works with an Express Server comunicating with the Python REST server.
+It also comunicate with the client using Sockets.IO.
 
-## Tasks
+## Support
 
-### Development (Optional)
-`npm install -g nodemon`  (Install nodemon)
-`npm start` or `yarn start`
-
-### Build
-`npm run build` or `yarn build`
-
-### Serve 
-`npm run build && npm run serve`
-or
-`yarn build && yarn serve`
-
-## Debug
-Simply run debugger(`F5`) on Visual Studio Code.
+This project it's in really early stage, if you want contribute write me or add me on discord #7573 enkos
