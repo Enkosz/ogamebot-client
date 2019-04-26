@@ -18,8 +18,8 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-without-dd-arr
                     li.dropdown.dropdown-user.nav-item
                         a.dropdown-toggle.nav-link.dropdown-user-link(href='#', data-toggle='dropdown')
                             span.mr-1
-                                span.text-bold-700.mr-1 #{user.credit} €
-                                span.user-name.text-bold-700 #{(user.firstname + ' ' + user.lastname) || user.email}
+                                span.text-bold-700.mr-1 
+                                span.user-name.text-bold-700 
                             span.avatar.avatar-online
                                 img(src='https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50',)
                                 i
@@ -40,11 +40,6 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-without-dd-arr
                             a.dropdown-item(href='/authentication/logout')
                                 i.ft-power
                                 |  Logout
-                    li.dropdown.dropdown-notification.nav-item
-                        a#cart_dropdown.nav-link.nav-link-label(href='/store/checkout')
-                            i.ficon.ft-shopping-cart
-                            if (cart.totalItems > 0)
-                                span#cart_length.badge.badge-pill.badge-default.badge-danger.badge-default.badge-up.badge-glow #{cart.totalItems}
                     li.dropdown.dropdown-notification.nav-item
                         a.nav-link.nav-link-label(href='#', data-toggle='dropdown')
                             i.ficon.ft-bell
